@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid mx-auto">
 
-    <!-- Dosen -->
+    <!-- Dosen Row -->
     <div class="col mb-4">
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
@@ -11,7 +11,7 @@
             <div class="card-body mx-auto">
 
                 <div class="row mt-4">
-                    <!-- MIF Card -->
+                    <!-- Collapse MIF Card -->
                     <div class="col mb-4">
                         <div class="card" style="width: 15rem;">
                             <img src="<?= base_url('assets/logo/mif.png'); ?>" class="card-img-top" alt="...">
@@ -56,13 +56,8 @@
 
         </div>
     </div>
-    <!-- Content Row -->
-    <div class="row" style="margin-left: 40px;">
+    <!-- End Dosen Row -->
 
-
-
-    </div>
-    <!-- Content Row -->
 
 </div>
 <!-- /.container-fluid -->

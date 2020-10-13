@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class mDashboard extends CI_Controller
+class mDataDosen extends CI_Controller
 {
     public function __construct()
     {
@@ -21,7 +21,7 @@ class mDashboard extends CI_Controller
     public function index()
     {
         //title
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Data Dosen';
         $data['role'] = $this->session->userdata('id_role');
 
         //ambil data session login
@@ -30,7 +30,7 @@ class mDashboard extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('mahasiswa/m_dashboard', $data);
+        $this->load->view('mahasiswa/m_data_dosen', $data);
         $this->load->view('templates/footer');
     }
 }
