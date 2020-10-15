@@ -28,7 +28,7 @@ class mProfile extends CI_Controller
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/mahasiswa_sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('mahasiswa/m_profile', $data);
         $this->load->view('templates/footer');
@@ -47,7 +47,7 @@ class mProfile extends CI_Controller
             $data['title'] = 'Edit Profile';
             $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
             $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/mahasiswa_sidebar', $data);
             $this->load->view('templates/topbar', $data);
             $this->load->view('mahasiswa/m_edit_profile', $data);
             $this->load->view('templates/footer');

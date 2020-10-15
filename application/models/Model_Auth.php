@@ -8,4 +8,10 @@ class Model_Auth extends CI_Model
     {
         return $this->db->get('tb_role')->result_array();
     }
+
+    //------------------------------ Prodi ------------------------------
+    public function getAllProdi()
+    {
+        return $this->db->get('tb_prodi')->result_array();
+    }
 }

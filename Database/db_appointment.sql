@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2020 at 09:46 AM
+-- Generation Time: Oct 15, 2020 at 09:54 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_appointment`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_prodi`
+--
+
+CREATE TABLE `tb_prodi` (
+  `id_prodi` int(11) NOT NULL,
+  `nama_prodi` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_prodi`
+--
+
+INSERT INTO `tb_prodi` (`id_prodi`, `nama_prodi`) VALUES
+(1, 'MIF'),
+(2, 'TIF'),
+(3, 'TKK');
 
 -- --------------------------------------------------------
 
@@ -49,13 +69,14 @@ INSERT INTO `tb_role` (`id_role`, `role`) VALUES
 --
 
 CREATE TABLE `tb_user` (
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
+  `nip/nim` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `password` varchar(258) NOT NULL,
   `id_role` int(1) NOT NULL,
+  `id_prodi` int(11) NOT NULL,
   `image` varchar(128) NOT NULL,
-  `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -63,14 +84,27 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id`, `name`, `email`, `password`, `id_role`, `image`, `is_active`, `date_created`) VALUES
-(1, 'Ekky Aulia Rahman', 'ekkyrahmanx1@gmail.com', '123456', 1, 'default.png', 1, 1602140297),
-(4, 'Bunayya Maulana', 'bunayya@gmail.com', '123456', 2, 'default.png', 1, 1602222965),
-(5, 'Dewi Ratih', 'dewiratih01@gmail.com', '123456', 3, 'default.png', 1, 1602223209);
+INSERT INTO `tb_user` (`id_user`, `name`, `nip/nim`, `email`, `password`, `id_role`, `id_prodi`, `image`, `date_created`) VALUES
+(1, 'Ekky Aulia Rahman', '0', 'ekkyrahmanx1@gmail.com', '123456', 1, 0, 'default.png', 1602140297),
+(4, 'Syamsul Arifin, S.Kom, M.Cs', '19810615 200604 1 002', 'syamsularifin@gmail.com', '123456', 2, 1, 'default.png', 1602222965),
+(5, 'Dewi Ratih', 'E31180222', 'dewiratih01@gmail.com', '123456', 3, 1, 'default.png', 1602223209),
+(8, 'Yogiswara, ST, MT', '19700929 200312 1 001', 'yogiswara@gmail.com', '123456', 2, 3, 'default.png', 1602693159),
+(9, 'Hendra Yufit Riskiawan, S.Kom, M.Cs', '19830203 200604 1 003', 'hendrayufit@gmail.com', '123456', 2, 1, 'default.png', 1602697890),
+(11, 'Victor Phoa, S.Si, M.Cs', '19851031 201803 1 001', 'victor@gmail.com', '123456', 2, 3, 'default.png', 1602737890),
+(14, 'Aji Seto Arifianto, S.ST., M.T.', '19851128 200812 1 002', 'ajiseto@gmail.com', '123456', 2, 2, 'default.png', 1602742596),
+(18, 'M Aldo Rizkaya', 'E31170509', 'aldorizkaya@gmail.com', '123456', 3, 2, 'default.png', 1602747889),
+(19, 'M Badar Pamungkas', 'E31180510', 'badarp@gmail.com', '123456', 3, 1, 'default.png', 1602747938),
+(23, 'M Haris', 'E31160509', 'haris@gmail.com', '123456', 3, 3, 'default.png', 1602748138);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tb_prodi`
+--
+ALTER TABLE `tb_prodi`
+  ADD PRIMARY KEY (`id_prodi`);
 
 --
 -- Indexes for table `tb_role`
@@ -82,11 +116,17 @@ ALTER TABLE `tb_role`
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_prodi`
+--
+ALTER TABLE `tb_prodi`
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_role`
@@ -98,7 +138,7 @@ ALTER TABLE `tb_role`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

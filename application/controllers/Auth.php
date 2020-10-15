@@ -38,36 +38,30 @@ class Auth extends CI_Controller
         //cek user
         if ($user) {
             //usernya ada
-            if ($user['is_active'] == 1) {
-                //sudak aktifasi
-                //...
-                //cek password
-                if ($pass) {
-                    //password benar
-                    $data = [
-                        'email' => $user['email'],
-                        'id_role' => $user['id_role']
-                    ];
 
-                    //buat session
-                    $this->session->set_userdata($data);
+            //cek password
+            if ($pass) {
+                //password benar
+                $data = [
+                    'email' => $user['email'],
+                    'id_role' => $user['id_role']
+                ];
 
-                    //cek status
-                    if ($data['id_role'] == '1') {
-                        redirect('Admin/aDashboard');
-                    } else if ($data['id_role'] == '2') {
-                        redirect('Dosen/dDashboard');
-                    } else if ($data['id_role'] == '3') {
-                        redirect('Mahasiswa/mDashboard');
-                    }
-                } else {
-                    // password salah
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Wrong Password!</div>');
-                    redirect('Auth');
+                //buat session
+                $this->session->set_userdata($data);
+
+                //cek status
+                if ($data['id_role'] == '1') {
+                    redirect('Admin/aDashboard');
+                } else if ($data['id_role'] == '2') {
+                    redirect('Dosen/dDashboard');
+                } else if ($data['id_role'] == '3') {
+                    redirect('Mahasiswa/mDashboard');
                 }
             } else {
-                //belum aktifasi
-                //..
+                // password salah
+                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Wrong Password!</div>');
+                redirect('Auth');
             }
         } else {
             //user tidak ada
@@ -106,7 +100,6 @@ class Auth extends CI_Controller
                 'image' => 'default.png',
                 'password' => $this->input->post('password1'),
                 'id_role' => $this->input->post('id_role'),
-                'is_active' => 1,
                 'date_created' => time(),
             ];
             $this->db->insert('tb_user', $data);
