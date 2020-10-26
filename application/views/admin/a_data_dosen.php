@@ -241,7 +241,7 @@
                                                    <div class="form-group">
                                                       <label for="exampleFormControlSelect2">Foto Profil</label>
                                                       <div class="form-group">
-                                                         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail" width="100px">
+                                                         <img src="<?= base_url('assets/img/profile/') . $tb['image']; ?>" class="img-thumbnail" width="100px">
                                                       </div>
                                                    </div>
                                                 </div>
@@ -454,7 +454,7 @@
                                                    <div class="form-group">
                                                       <label for="exampleFormControlSelect2">Foto Profil</label>
                                                       <div class="form-group">
-                                                         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail" width="100px">
+                                                         <img src="<?= base_url('assets/img/profile/') . $tb['image']; ?>" class="img-thumbnail" width="100px">
                                                       </div>
                                                    </div>
                                                 </div>
@@ -667,7 +667,7 @@
                                                    <div class="form-group">
                                                       <label for="exampleFormControlSelect2">Foto Profil</label>
                                                       <div class="form-group">
-                                                         <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-thumbnail" width="100px">
+                                                         <img src="<?= base_url('assets/img/profile/') . $tb['image']; ?>" class="img-thumbnail" width="100px">
                                                       </div>
                                                    </div>
                                                 </div>

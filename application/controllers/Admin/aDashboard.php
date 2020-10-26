@@ -15,7 +15,6 @@ class aDashboard extends CI_Controller
                 redirect('Auth/access_blocked');
             }
         }
-        $this->load->model('Model_Auth');
     }
 
     public function index()

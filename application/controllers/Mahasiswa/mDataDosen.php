@@ -15,7 +15,7 @@ class mDataDosen extends CI_Controller
                 redirect('Auth/access_blocked');
             }
         }
-        $this->load->model('Model_Dosen');
+        $this->load->model('Model_User');
     }
 
     public function index()
@@ -27,7 +27,7 @@ class mDataDosen extends CI_Controller
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['dosen'] = $this->Model_Dosen->getAllDosen();
+        $data['dosen'] = $this->Model_User->getAllDosenMif();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/mahasiswa_sidebar', $data);
         $this->load->view('templates/topbar', $data);

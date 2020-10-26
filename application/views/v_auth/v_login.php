@@ -55,9 +55,6 @@
                         <div class="text-center">
                            <a class="small" href="<?= base_url('Auth/forgot_password'); ?>">Forgot Password?</a>
                         </div>
-                        <div class="text-center">
-                           <a class="small" href="<?= base_url('Auth/register'); ?>">Create an Account!</a>
-                        </div>
                      </div>
                   </div>
 

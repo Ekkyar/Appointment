@@ -147,7 +147,7 @@
                     <!-- View MIF -->
                     <div class="row">
                         <div class="col">
-                            <table class="table">
+                            <table class="table table-sm">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">Id</th>

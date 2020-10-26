@@ -15,7 +15,6 @@ class dDashboard extends CI_Controller
                 redirect('Auth/access_blocked');
             }
         }
-        $this->load->model('Model_Auth');
     }
 
     public function index()
@@ -24,8 +23,11 @@ class dDashboard extends CI_Controller
         $data['title'] = 'Dashboard';
         $data['role'] = $this->session->userdata('id_role');
 
+        //ambil data session login
+        $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/dosen_sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('dosen/d_dashboard', $data);
         $this->load->view('templates/footer');

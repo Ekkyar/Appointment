@@ -70,44 +70,6 @@ class Auth extends CI_Controller
         }
     }
 
-    public function register()
-    {
-        //Rules
-        $this->form_validation->set_rules('name', 'Name', 'required|trim|is_unique[tb_user.name]', [
-            'is_unique' => 'Name is already registered'
-        ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tb_user.email]', [
-            'is_unique' => 'Email is already registered'
-        ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[4]|matches[password2]', [
-            'min_length' => 'Password is too short!',
-            'matches' => 'Password doesnt match'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-
-        //Register
-        if ($this->form_validation->run() == False) {
-
-            $data['role'] = $this->Model_Auth->getAllRole();
-            $data['title'] = 'Register';
-            $this->load->view('templates/auth_header', $data);
-            $this->load->view('v_auth/v_register');
-            $this->load->view('templates/auth_footer');
-        } else {
-            $data = [
-                'name' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
-                'image' => 'default.png',
-                'password' => $this->input->post('password1'),
-                'id_role' => $this->input->post('id_role'),
-                'date_created' => time(),
-            ];
-            $this->db->insert('tb_user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Your account has been created. Please login</div>');
-            redirect('Auth');
-        }
-    }
-
     public function forgot_password()
     {
         $data['title'] = 'Forgot Password';

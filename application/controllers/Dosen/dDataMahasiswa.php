@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class aDashboard extends CI_Controller
+class dDataMahasiswa extends CI_Controller
 {
     public function __construct()
     {
@@ -11,26 +11,29 @@ class aDashboard extends CI_Controller
             redirect('Auth/access_blocked');
         } else {
             $role = $this->session->userdata('id_role');
-            if ($role != '1') {
+            if ($role != '2') {
                 redirect('Auth/access_blocked');
             }
         }
-        $this->load->model('Model_Auth');
+        $this->load->model('Model_User');
     }
 
     public function index()
     {
         //title
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Data Mahasiswa';
         $data['role'] = $this->session->userdata('id_role');
 
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['mahasiswa_mif'] = $this->Model_User->getAllMahasiswaMif();
+        $data['mahasiswa_tif'] = $this->Model_User->getAllMahasiswaTif();
+        $data['mahasiswa_tkk'] = $this->Model_User->getAllMahasiswaTkk();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/admin_sidebar', $data);
-        $this->load->view('templates/admin_topbar', $data);
-        $this->load->view('admin/a_dashboard', $data);
+        $this->load->view('templates/dosen_sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('dosen/d_data_mahasiswa', $data);
         $this->load->view('templates/footer');
     }
 }

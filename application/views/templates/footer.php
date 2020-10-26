@@ -55,6 +55,14 @@
 <script src="<?= base_url('assets/sb-admin/'); ?>js/demo/chart-area-demo.js"></script>
 <script src="<?= base_url('assets/sb-admin/'); ?>js/demo/chart-pie-demo.js"></script>
 
+<!-- Custom Script -->
+<script>
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
+    });
+</script>
+
 </body>
 
 </html>
