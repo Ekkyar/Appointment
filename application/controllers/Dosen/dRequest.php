@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class mDataDosen extends CI_Controller
+class dRequest extends CI_Controller
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class mDataDosen extends CI_Controller
             redirect('Auth/access_blocked');
         } else {
             $role = $this->session->userdata('id_role');
-            if ($role != '3') {
+            if ($role != '2') {
                 redirect('Auth/access_blocked');
             }
         }
@@ -21,19 +21,16 @@ class mDataDosen extends CI_Controller
     public function index()
     {
         //title
-        $data['title'] = 'Data Dosen';
+        $data['title'] = 'Request';
         $data['role'] = $this->session->userdata('id_role');
 
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['dosen_mif'] = $this->Model_User->getAllDosenMif();
-        $data['dosen_tif'] = $this->Model_User->getAllDosenTif();
-        $data['dosen_tkk'] = $this->Model_User->getAllDosenTkk();
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/mahasiswa_sidebar', $data);
+        $this->load->view('templates/dosen_sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('mahasiswa/m_data_dosen', $data);
+        $this->load->view('dosen/d_request', $data);
         $this->load->view('templates/footer');
     }
 }

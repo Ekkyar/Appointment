@@ -39,13 +39,6 @@
             <li class="nav-item">
             <?php endif; ?>
 
-            <!-- Nav Item - Mahasiswa -->
-            <?php if ($title == 'Jadwal') : ?>
-            <li class="nav-item active">
-            <?php else : ?>
-            <li class="nav-item">
-            <?php endif; ?>
-
             <a class="nav-link" href="<?= base_url('Dosen/dJadwal'); ?>">
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>Jadwal</span>

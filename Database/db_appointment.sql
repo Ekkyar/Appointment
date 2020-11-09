@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 03:16 AM
+-- Generation Time: Nov 09, 2020 at 08:36 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -39,6 +39,41 @@ CREATE TABLE `calendar` (
   `create_by` varchar(64) DEFAULT NULL,
   `modified_at` datetime DEFAULT NULL,
   `modified_by` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_confirm`
+--
+
+CREATE TABLE `tb_confirm` (
+  `id_confirm` int(11) NOT NULL,
+  `nama_confirm` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_confirm`
+--
+
+INSERT INTO `tb_confirm` (`id_confirm`, `nama_confirm`) VALUES
+(1, 'Accept'),
+(2, 'Decline');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_event`
+--
+
+CREATE TABLE `tb_event` (
+  `id_event` int(11) NOT NULL,
+  `keperluan` varchar(128) NOT NULL,
+  `tanggal` int(11) NOT NULL,
+  `date_created` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_status` int(11) NOT NULL,
+  `id_confirm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -80,6 +115,29 @@ INSERT INTO `tb_role` (`id_role`, `role`) VALUES
 (1, 'Admin'),
 (2, 'Dosen'),
 (3, 'Mahasiswa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_status`
+--
+
+CREATE TABLE `tb_status` (
+  `id_status` int(11) NOT NULL,
+  `nama_status` varchar(128) NOT NULL,
+  `color` varchar(128) NOT NULL,
+  `jam` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_status`
+--
+
+INSERT INTO `tb_status` (`id_status`, `nama_status`, `color`, `jam`) VALUES
+(1, 'Open', '#1cc88a', 'Pagi-Sore'),
+(2, 'Close', '#e74a3b', 'Closed'),
+(3, 'Pagi', '#f6c23e', 'Pagi-Siang'),
+(4, 'Sore', '#fd7e14', 'Siang-Sore');
 
 -- --------------------------------------------------------
 
@@ -127,6 +185,12 @@ ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_confirm`
+--
+ALTER TABLE `tb_confirm`
+  ADD PRIMARY KEY (`id_confirm`);
+
+--
 -- Indexes for table `tb_prodi`
 --
 ALTER TABLE `tb_prodi`
@@ -137,6 +201,12 @@ ALTER TABLE `tb_prodi`
 --
 ALTER TABLE `tb_role`
   ADD PRIMARY KEY (`id_role`);
+
+--
+-- Indexes for table `tb_status`
+--
+ALTER TABLE `tb_status`
+  ADD PRIMARY KEY (`id_status`);
 
 --
 -- Indexes for table `tb_user`
@@ -155,6 +225,12 @@ ALTER TABLE `calendar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `tb_confirm`
+--
+ALTER TABLE `tb_confirm`
+  MODIFY `id_confirm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tb_prodi`
 --
 ALTER TABLE `tb_prodi`
@@ -165,6 +241,12 @@ ALTER TABLE `tb_prodi`
 --
 ALTER TABLE `tb_role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_status`
+--
+ALTER TABLE `tb_status`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
