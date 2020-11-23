@@ -1,67 +1,28 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-   <!-- Dosen Row -->
-   <div class="col mb-4">
-      <div class="card shadow mb-4">
-         <div class="card-header py-3 text-center">
-            <h6 class="m-0 font-weight-bold text-primary">Program Studi</h6>
-         </div>
+   <!-- KONTEN -->
+   <div class="accordion" id="accordionExample">
 
-         <!-- Content Row -->
-         <div class="card-body accordion mx-auto" id="accordion">
+      <div class="col mb-4">
+         <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseMIF" aria-controls="collapseMIF">MIF</button>
+         <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseTIF" aria-controls="collapseTIF">TIF</button>
+         <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseTKK" aria-controls="collapseTKK">TKK</button>
+      </div>
 
-            <!-- Create Collapse -->
-            <div class="row mt-4">
-               <!-- Collapse MIF Card -->
-               <div class="col mb-4">
-                  <div class="card" style="width: 15rem;">
-                     <img src="<?= base_url('assets/logo/mif.png'); ?>" class="card-img-top" alt="...">
-                     <div class="card-body text-center">
-                        <a type="button" data-toggle="collapse" data-target="#collapseMIF" aria-expanded="true" aria-controls="collapseMIF">
-                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Manajemen Informatika</div>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col-0"></div>
-
-               <!-- Collapse TIF Card -->
-               <div class="col mb-4">
-                  <div class="card" style="width: 15rem;">
-                     <img src="<?= base_url('assets/logo/tif.png'); ?>" class="card-img-top" alt="...">
-                     <div class="card-body text-center">
-                        <a type="button" data-toggle="collapse" data-target="#collapseTIF" aria-expanded="true" aria-controls="collapseTIF">
-                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Teknik Informatika</div>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="col-0"></div>
-
-               <!-- Collapse TKK Card -->
-               <div class="col mb-4">
-                  <div class="card" style="width: 15rem;">
-                     <img src="<?= base_url('assets/logo/tkk.png'); ?>" class="card-img-top" alt="...">
-                     <div class="card-body text-center">
-                        <a type="button" data-toggle="collapse" data-target="#collapseTKK" aria-expanded="true" aria-controls="collapseTKK">
-                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Teknik Komputer</div>
-                        </a>
-                     </div>
-                  </div>
-               </div>
+      <!-- KONTEN MIF -->
+      <div id="collapseMIF" class="col mb-4 collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+         <div class="card shadow mb-4" id="headingOne">
+            <div class="card-header py-3 text-center">
+               <h6 class="m-0 font-weight-bold text-primary">Manajemen Informatika (MIF)</h6>
             </div>
-            <!-- Akhir Create Collapse -->
 
-            <!-- Output Collapse MIF -->
-            <div class="collapse show mb-4" id="collapseMIF" data-parent="#accordion">
-               <div class="row">
-                  <div class="col text-center">
-                     <h3 class="text-primary">Data Dosen MIF</h3>
-                  </div>
-               </div>
+
+            <!-- CARD MIF -->
+            <div class="card-body">
+
+               <!-- Output Collapse MIF -->
+
                <div class="row">
                   <div class="col-lg-3 mb-3">
                      <button class="btn btn-success" data-toggle="modal" data-target="#insertMIF">
@@ -265,16 +226,26 @@
                   </div>
                </div>
                <!-- Akhir View MIF -->
+               <!-- Output Collapse MIF -->
             </div>
-            <!-- Akhir Output Collapse MIF -->
+            <!-- Akhir Card Mif -->
 
-            <!-- Output Collapse TIF -->
-            <div class="collapse mb-4" id="collapseTIF" data-parent="#accordion">
-               <div class="row">
-                  <div class="col text-center">
-                     <h3 class="text-primary">Data Dosen TIF</h3>
-                  </div>
-               </div>
+         </div>
+      </div>
+      <!-- AKHIR KONTEN MIF -->
+
+      <!-- KONTEN TIF -->
+      <div id="collapseTIF" class="col mb-4 collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+         <div class="card shadow mb-4" id="headingTwo">
+            <div class="card-header py-3 text-center">
+               <h6 class="m-0 font-weight-bold text-primary">Teknik Informatika (TIF)</h6>
+            </div>
+
+
+            <!-- CARD TIF -->
+            <div class="card-body">
+
+               <!-- Output Collapse TIF -->
                <div class="row">
                   <div class="col-lg-3 mb-3">
                      <button class="btn btn-success" data-toggle="modal" data-target="#insertTIF">
@@ -478,16 +449,26 @@
                   </div>
                </div>
                <!-- Akhir View TIF -->
+               <!-- Output Collapse TIF -->
             </div>
-            <!-- Akhir Output Collapse TIF -->
+            <!-- Akhir Card TIF -->
 
-            <!-- Output Collapse TKK -->
-            <div class="collapse mb-4" id="collapseTKK" data-parent="#accordion">
-               <div class="row">
-                  <div class="col text-center">
-                     <h3 class="text-primary">Data Dosen TKK</h3>
-                  </div>
-               </div>
+         </div>
+      </div>
+      <!-- AKHIR KONTEN TIF -->
+
+      <!-- KONTEN TKK -->
+      <div id="collapseTKK" class="col mb-4 collapse" aria-labelledby="headingthree" data-parent="#accordionExample">
+         <div class="card shadow mb-4" id="headingthree">
+            <div class="card-header py-3 text-center">
+               <h6 class="m-0 font-weight-bold text-primary">Teknik Komputer</h6>
+            </div>
+
+
+            <!-- CARD TKK -->
+            <div class="card-body">
+               <!-- Output Collapse TKK -->
+
                <div class="row">
                   <div class="col-lg-3 mb-3">
                      <button class="btn btn-success" data-toggle="modal" data-target="#insertTKK">
@@ -691,16 +672,17 @@
                   </div>
                </div>
                <!-- Akhir View TKK -->
+               <!-- Output Collapse TKK -->
             </div>
-            <!-- Akhir Output Collapse TKK -->
-
-
+            <!-- Akhir Card TKK -->
 
          </div>
-
       </div>
+      <!-- AKHIR KONTEN TIF -->
+
    </div>
-   <!-- End Dosen Row -->
+   <!-- AKHIR KONTEN -->
+
 
 </div>
 <!-- /.container-fluid -->

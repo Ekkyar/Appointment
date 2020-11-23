@@ -15,35 +15,23 @@ class mJadwal extends CI_Controller
                 redirect('Auth/access_blocked');
             }
         }
+        $this->load->model('Model_FullCalendar');
         $this->load->model('Model_User');
-        $this->table         = 'calendar';
-        $this->load->model('Model_Calendar', 'modeldb');
     }
 
     public function index()
     {
-        $data_calendar = $this->modeldb->get_list($this->table);
-        $calendar = array();
-        foreach ($data_calendar as $key => $val) {
-            $calendar[] = array(
-                'id'     => intval($val->id),
-                'title' => $val->title,
-                'description' => trim($val->description),
-                'start' => date_format(date_create($val->start_date), "Y-m-d H:i:s"),
-                'end'     => date_format(date_create($val->end_date), "Y-m-d H:i:s"),
-                'color' => $val->color,
-            );
-        }
-
-        $data = array();
-        $data['get_data']            = json_encode($calendar);
-
         //title
         $data['title'] = 'Jadwal';
         $data['role'] = $this->session->userdata('id_role');
 
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // Tampil Dosen
+        $data['mif'] = $this->Model_User->getAllDosenMif();
+        $data['tif'] = $this->Model_User->getAllDosenTif();
+        $data['tkk'] = $this->Model_User->getAllDosenTkk();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/mahasiswa_sidebar', $data);
@@ -52,69 +40,49 @@ class mJadwal extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function save()
+    function load()
     {
-        $response = array();
-        $this->form_validation->set_rules('title', 'Title cant be empty ', 'required');
-        if ($this->form_validation->run() == TRUE) {
-            $param = $this->input->post();
-            $calendar_id = $param['calendar_id'];
-            unset($param['calendar_id']);
-
-            if ($calendar_id == 0) {
-                $param['create_at']       = date('Y-m-d H:i:s');
-                $insert = $this->modeldb->insert($this->table, $param);
-
-                if ($insert > 0) {
-                    $response['status'] = TRUE;
-                    $response['notif']    = 'Success add calendar';
-                    $response['id']        = $insert;
-                } else {
-                    $response['status'] = FALSE;
-                    $response['notif']    = 'Server wrong, please save again';
-                }
-            } else {
-                $where         = ['id'  => $calendar_id];
-                $param['modified_at']       = date('Y-m-d H:i:s');
-                $update = $this->modeldb->update($this->table, $param, $where);
-
-                if ($update > 0) {
-                    $response['status'] = TRUE;
-                    $response['notif']    = 'Success add calendar';
-                    $response['id']        = $calendar_id;
-                } else {
-                    $response['status'] = FALSE;
-                    $response['notif']    = 'Server wrong, please save again';
-                }
-            }
-        } else {
-            $response['status'] = FALSE;
-            $response['notif']    = validation_errors();
+        $event_data = $this->Model_FullCalendar->fetch_all_event();
+        foreach ($event_data->result_array() as $row) {
+            $data[] = array(
+                'id' => $row['id'],
+                'title' => $row['title'],
+                'start' => $row['start_event'],
+                'end' => $row['end_event']
+            );
         }
-
-        echo json_encode($response);
+        echo json_encode($data);
     }
 
-    public function delete()
+    function insert()
     {
-        $response         = array();
-        $calendar_id     = $this->input->post('id');
-        if (!empty($calendar_id)) {
-            $where = ['id' => $calendar_id];
-            $delete = $this->modeldb->delete($this->table, $where);
-
-            if ($delete > 0) {
-                $response['status'] = TRUE;
-                $response['notif']    = 'Success delete calendar';
-            } else {
-                $response['status'] = FALSE;
-                $response['notif']    = 'Server wrong, please save again';
-            }
-        } else {
-            $response['status'] = FALSE;
-            $response['notif']    = 'Data not found';
+        if ($this->input->post('title')) {
+            $data = array(
+                'title'  => $this->input->post('title'),
+                'start_event' => $this->input->post('start'),
+                'end_event' => $this->input->post('end')
+            );
+            $this->Model_FullCalendar->insert_event($data);
         }
+    }
 
-        echo json_encode($response);
+    function update()
+    {
+        if ($this->input->post('id')) {
+            $data = array(
+                'title'   => $this->input->post('title'),
+                'start_event' => $this->input->post('start'),
+                'end_event'  => $this->input->post('end')
+            );
+
+            $this->Model_FullCalendar->update_event($data, $this->input->post('id'));
+        }
+    }
+
+    function delete()
+    {
+        if ($this->input->post('id')) {
+            $this->Model_FullCalendar->delete_event($this->input->post('id'));
+        }
     }
 }

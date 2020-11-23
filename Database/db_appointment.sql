@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 08:36 AM
+-- Generation Time: Nov 23, 2020 at 03:49 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -44,6 +44,26 @@ CREATE TABLE `calendar` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_event` datetime NOT NULL,
+  `end_event` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start_event`, `end_event`) VALUES
+(7, 'Bimbingan TA', '2020-11-19 00:00:00', '2020-11-20 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_confirm`
 --
 
@@ -58,7 +78,8 @@ CREATE TABLE `tb_confirm` (
 
 INSERT INTO `tb_confirm` (`id_confirm`, `nama_confirm`) VALUES
 (1, 'Accept'),
-(2, 'Decline');
+(2, 'Decline'),
+(3, 'pending');
 
 -- --------------------------------------------------------
 
@@ -67,13 +88,10 @@ INSERT INTO `tb_confirm` (`id_confirm`, `nama_confirm`) VALUES
 --
 
 CREATE TABLE `tb_event` (
-  `id_event` int(11) NOT NULL,
-  `keperluan` varchar(128) NOT NULL,
-  `tanggal` int(11) NOT NULL,
-  `date_created` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_status` int(11) NOT NULL,
-  `id_confirm` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_event` datetime NOT NULL,
+  `end_event` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -172,7 +190,7 @@ INSERT INTO `tb_user` (`id_user`, `name`, `nip/nim`, `email`, `password`, `id_ro
 (18, 'M Aldo Rizkaya', 'E31170509', 'aldorizkaya@gmail.com', '123456', 3, 2, 'default.png', 1602747889),
 (19, 'M Badar Pamungkas', 'E31180510', 'badarp@gmail.com', '123456', 3, 1, 'default.png', 1602747938),
 (23, 'M Haris', 'E31160509', 'haris@gmail.com', '123456', 3, 3, 'default.png', 1602748138),
-(24, 'awe', '12', 'ekkyrahmanx2@gmail.com', '123456', 2, 2, 'default.png', 1603682234);
+(25, 'Wiji', '00988812312143', 'wiji@gmail.com', '123456', 2, 2, 'default.png', 1605686221);
 
 --
 -- Indexes for dumped tables
@@ -185,10 +203,22 @@ ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_confirm`
 --
 ALTER TABLE `tb_confirm`
   ADD PRIMARY KEY (`id_confirm`);
+
+--
+-- Indexes for table `tb_event`
+--
+ALTER TABLE `tb_event`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_prodi`
@@ -225,10 +255,22 @@ ALTER TABLE `calendar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `tb_confirm`
 --
 ALTER TABLE `tb_confirm`
-  MODIFY `id_confirm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_confirm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_event`
+--
+ALTER TABLE `tb_event`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_prodi`
@@ -252,7 +294,7 @@ ALTER TABLE `tb_status`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

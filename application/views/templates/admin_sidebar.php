@@ -39,19 +39,12 @@
             <li class="nav-item">
             <?php endif; ?>
 
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJadwal" aria-expanded="true" aria-controls="collapseJadwal">
+            <a class="nav-link collapsed" href="<?= base_url('Admin/aJadwal'); ?>">
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>Jadwal</span>
             </a>
-            <div id="collapseJadwal" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Program Studi</h6>
-                    <a class="collapse-item" href="buttons.html">MIF</a>
-                    <a class="collapse-item" href="buttons.html">TIF</a>
-                    <a class="collapse-item" href="cards.html">TKK</a>
-                </div>
-            </div>
             </li>
+
 
             <!-- Nav Item - Dosen -->
             <?php if ($title == 'Data Dosen') : ?>

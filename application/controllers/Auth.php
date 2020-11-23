@@ -43,6 +43,7 @@ class Auth extends CI_Controller
             if ($pass) {
                 //password benar
                 $data = [
+                    'id_user' => $user['id_user'],
                     'email' => $user['email'],
                     'id_role' => $user['id_role']
                 ];

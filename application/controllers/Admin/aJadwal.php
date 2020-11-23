@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class dJadwal extends CI_Controller
+class aJadwal extends CI_Controller
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class dJadwal extends CI_Controller
             redirect('Auth/access_blocked');
         } else {
             $role = $this->session->userdata('id_role');
-            if ($role != '2') {
+            if ($role != '1') {
                 redirect('Auth/access_blocked');
             }
         }
@@ -34,9 +34,9 @@ class dJadwal extends CI_Controller
         $data['tkk'] = $this->Model_User->getAllDosenTkk();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/dosen_sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('dosen/d_jadwal', $data);
+        $this->load->view('templates/admin_sidebar', $data);
+        $this->load->view('templates/admin_topbar', $data);
+        $this->load->view('admin/a_jadwal', $data);
         $this->load->view('templates/footer');
     }
 
