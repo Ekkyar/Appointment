@@ -22,10 +22,10 @@ class aDataMahasiswa extends CI_Controller
     {
         //title
         $data['title'] = 'Data Mahasiswa';
-        $data['role'] = $this->session->userdata('id_role');
 
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get_where('tb_role', ['id_role' => $this->session->userdata('id_role')])->row_array();
 
         //model
         $data['mahasiswa_mif'] = $this->Model_User->getAllMahasiswaMif();
