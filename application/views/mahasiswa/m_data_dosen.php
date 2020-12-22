@@ -43,7 +43,6 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="" class=" badge badge-primary" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">detail</a> |
                                                 <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
                                             </td>
                                         </tr>
@@ -91,8 +90,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="" class=" badge badge-primary" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">detail</a> |
-                                                <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
+                                               <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -139,8 +137,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="" class=" badge badge-primary" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">detail</a> |
-                                                <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
+                                               <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

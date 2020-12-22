@@ -27,6 +27,9 @@ class mJadwal extends CI_Controller
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get_where('tb_role', ['id_role' => $this->session->userdata('id_role')])->row_array();
+        
+        $data['id_user_mahasiswa'] = $data['user']['id_user'];
+        $data['id_prodi'] = $data['user']['id_prodi'];
 
         // Tampil Dosen
         $data['mif'] = $this->Model_User->getAllDosenMif();
@@ -42,13 +45,36 @@ class mJadwal extends CI_Controller
 
     function load()
     {
-        $event_data = $this->Model_FullCalendar->fetch_all_event();
+        $event_data = $this->Model_FullCalendar->fetch_all_event_by_student($this->session->userdata('id_user'));
         foreach ($event_data->result_array() as $row) {
+            $getInfo = $this->db->get_where('tb_user', ['id_user' => $row['id_user']])->row_array();
+
+            $idEvent = $row['id'];
+            $startEvent = $row['start_event'];
+            $endEvent = $row['end_event'];
+            $content = $row['title'];
+            $user = $getInfo['name'];
+            $status = $row['status'];
+
+            $msg = "$content oleh $user";
+
+            if($status === "waiting") {
+                $color = "blue";
+            } elseif($status === "accept") {
+                $color = "green";
+            } elseif($status === "reject") {
+                $color = "red";
+            }
+
             $data[] = array(
-                'id' => $row['id'],
-                'title' => $row['title'],
-                'start' => $row['start_event'],
-                'end' => $row['end_event']
+                'id' => $idEvent,
+                'title' => $content,
+                'start' => $startEvent,
+                'end' => $endEvent,
+                'user' => $user,
+                'status' => $row['status'],
+                'message' => $row['message'],
+                'color' => $color
             );
         }
         echo json_encode($data);
@@ -60,7 +86,10 @@ class mJadwal extends CI_Controller
             $data = array(
                 'title'  => $this->input->post('title'),
                 'start_event' => $this->input->post('start'),
-                'end_event' => $this->input->post('end')
+                'end_event' => $this->input->post('end'),
+                'id_user' => $this->input->post('user'),
+                'id_dosen' => $this->input->post('dosen'),
+                'status' => 'waiting'
             );
             $this->Model_FullCalendar->insert_event($data);
         }
@@ -76,6 +105,13 @@ class mJadwal extends CI_Controller
             );
 
             $this->Model_FullCalendar->update_event($data, $this->input->post('id'));
+        }
+    }
+
+    function updateStatus()
+    {
+        if ($this->input->post('id')) {
+            
         }
     }
 

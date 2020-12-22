@@ -7,6 +7,16 @@ class Model_FullCalendar extends CI_Model
         $this->db->order_by('id');
         return $this->db->get('tb_event');
     }
+    
+    function fetch_all_event_by_dosen($id)
+    {
+        return $this->db->get_where('tb_event', ['id_dosen' => $id]);
+    }
+
+    function fetch_all_event_by_student($id)
+    {
+        return $this->db->get_where('tb_event', ['id_user' => $id]);
+    }
 
     function insert_event($data)
     {

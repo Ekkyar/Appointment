@@ -14,6 +14,31 @@ class Model_User extends CI_Model
         return $this->db->get('tb_user')->result_array();
     }
 
+    public function getAllMapMIF()
+    {
+        $arr2 = array_map(function($person) {
+            $id_role = 2;
+            $id_prodi = 1;
+            $this->db->where('id_role', $id_role);
+            $this->db->where('id_prodi', $id_prodi);
+            $chat = $this->db->get('tb_user')->result_array();
+                foreach($chat as $b) {
+                    return [
+                            "id_pengaduan" => $person['id_pengaduan'],
+                            "id_pelapor" => $person['id_pelapor'],
+                            "id_opd" => $person['id_opd'],
+                            "judul" => $person['judul'],
+                            "deskripsi" => $person['deskripsi'],
+                            "alamat" => $person['alamat'],
+                            "foto" => $person['foto'],
+                            "status" => $person['status'],
+                            "total_komentar" => $komentar,
+                            "total_tindakan" => $tindakan
+                    ];
+                }
+        }, $pengaduan);
+    }
+
     // Dosen TIF
     public function getAllDosenTif()
     {

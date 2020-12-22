@@ -15,18 +15,23 @@
                 </tr>
             </thead>
             <tbody>
+            <?php
+            foreach ($mRequest as $data):
+                $id_user = $data['id_user'];
+                $query = $this->db->query("SELECT * FROM tb_user WHERE id_user = '$id_user'")->row_array();
+            ?>
                 <tr>
-                    <td>Ekky Aulia Rahman</td>
-                    <td>E31180509</td>
+                    <td><?= $query['name']; ?></td>
+                    <td><?= $query['nip/nim']; ?></td>
+                    <td><?= $data['title']; ?></td>
+                    <td><?= $data['start_event']; ?></td>
                     <td>
-                        Bimbingan Proposal
-                    </td>
-                    <td>10 Desember 2020</td>
-                    <td>
-                        <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<= $mif['id_user']; ?>">Accept</a> |
-                        <a href="" class=" badge badge-danger" data-toggle="modal" data-target="#lihatMahasiswa<= $mif['id_user']; ?>">Reject</a>
+                        <a href="<?= base_url();?>dosen/drequest/accept/<?= $data['id']; ?>">Accept</a> |
+                        <a href="<?= base_url();?>dosen/drequest/reject/<?= $data['id']; ?>">Reject</a>
                     </td>
                 </tr>
+            <?php
+            endforeach; ?>
             </tbody>
         </table>
 

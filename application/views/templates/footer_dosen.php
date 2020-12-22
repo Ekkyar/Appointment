@@ -55,10 +55,30 @@
                 <li class="list-group-item status"></li>
             </ul>
             <hr>
-            <div class="form-group">
-                <label for="inputPassword2">Message from Sender</label>
-                <textarea class="form-control message_report" rows="3" readonly></textarea>
+            <form class="form-inline">
+            <div class="form-group mr-3 mb-2">
+                <input class="form-control status_id" type="hidden"/>
+                <label for="inputPassword2" class="sr-only">Change Status</label>
+                <select name="status" class="form-control status_event">
+                    <option value="waiting">Waiting</option>
+                    <option value="accept">Accept</option>
+                    <option value="reject">Reject</option>
+                </select>
             </div>
+            <div class="form-group mr-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Message</label>
+                <textarea class="form-control message_report"></textarea>
+            </div>
+            <button type="button" class="btn btn-secondary mb-2" onclick="updateEvent();">Change</button>
+            </form>
+            <hr>
+            <form class="form-inline">
+            <div class="form-group mr-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Delete Event</label>
+                <input class="form-control event_id" readonly name="id"/>
+            </div>
+            <button type="button" class="btn btn-danger mb-2" onclick="deleteEvent();">Delete</button>
+            </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
@@ -67,6 +87,7 @@
     </div>
 </div>
 
+<!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('assets/sb-admin/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('assets/sb-admin/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('assets/sb-admin/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -79,6 +100,43 @@
 <script src='https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js'></script>
 <script>
+    
+    function deleteEvent()
+    {
+        var eventId = $('.event_id').val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>Dosen/dJadwal/delete",
+            type: "POST",
+            data: {
+                id: eventId
+            },
+            success: function() {
+                alert('Event Removed');
+                window.location.href = "<?= base_url(); ?>Dosen/dJadwal";
+            }
+        })
+    }
+
+    function updateEvent()
+    {
+        var eventStatus = $(".status_event option:selected").val();
+        var eventId = $('.status_id').val();
+        var message = $('.message_report').val();
+        // console.log(`${eventStatus} dan ${eventId}`);
+        $.ajax({
+            url: "<?php echo base_url(); ?>Dosen/dJadwal/update",
+            type: "POST",
+            data: {
+                status: eventStatus,
+                id: eventId,
+                message: message
+            },
+            success: function() {
+                alert('Event Updated');
+                window.location.href = "<?= base_url(); ?>Dosen/dJadwal";
+            }
+        })
+    }
 
     $(document).ready(function() {
         var calendar = $('#calendar').fullCalendar({
@@ -88,34 +146,8 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            eventColor: "blue",
-            events: "<?php echo base_url(); ?>Mahasiswa/mJadwal/load",
-            selectable: true,
-            selectHelper: true,
-            select: function(start, end, allDay) {
-                var title = prompt("Masukkan Keperluan");
-                if (title) {
-                    var id_user = <?= $id_user_mahasiswa; ?>;
-                    var id_dosen = $("#id_role option:selected").val();
-                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>Mahasiswa/mJadwal/insert",
-                        type: "POST",
-                        data: {
-                            title: title,
-                            start: start,
-                            end: end,
-                            user: id_user,
-                            dosen: id_dosen
-                        },
-                        success: function() {
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Added Successfully");
-                        }
-                    })
-                }
-            },
+            eventColor: 'green',
+            events: "<?php echo base_url(); ?>dosen/djadwal/load",
             eventClick: function(event) {
                 jQuery.noConflict(); 
                 $('#eventModal').modal('show'); 
