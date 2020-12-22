@@ -44,4 +44,13 @@ class dRequest extends CI_Controller
         $this->db->update('tb_event', $data);
         redirect('Dosen/dRequest');
     }
+    public function reject(){
+        $id = $this->uri->segment(4);
+        $data = [
+            'status' => 'reject'
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('tb_event', $data);
+        redirect('Dosen/dRequest');
+    }
 }
