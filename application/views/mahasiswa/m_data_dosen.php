@@ -22,8 +22,8 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
-                                        <th scope="col">Nama dosen</th>
+                                        <th scope="col">ID User</th>
+                                        <th scope="col">Nama Dosen</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">Image</th>
                                         <th scope="col"></th>
@@ -69,7 +69,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
+                                        <th scope="col">ID User</th>
                                         <th scope="col">Nama Dosen</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">Image</th>
@@ -116,7 +116,7 @@
                             <table class="table table-">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
+                                        <th scope="col">ID User</th>
                                         <th scope="col">Nama Dosen</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">Image</th>
