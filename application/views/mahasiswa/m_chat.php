@@ -18,7 +18,7 @@
 					<p class="card-text">
 						<?= $chat['update_time']; ?>
 					</p>
-                    <a href="<?= base_url(); ?>mahasiswa/mchat/show/<?= $chat['id']; ?>" target="_blank" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="<?= base_url(); ?>Mahasiswa/MChat/show/<?= $chat['id']; ?>" target="_blank" class="btn btn-primary"><i class="fas fa-eye"></i></a>
 				</div>
 			</div>
 		</div>
@@ -68,7 +68,7 @@
         var topik = $('#topik').val();
         var dosen = $("#id_user option:selected").val();
 		$.ajax({
-			url: "<?php echo base_url(); ?>Mahasiswa/mChat/start",
+			url: "<?php echo base_url(); ?>Mahasiswa/MChat/start",
 			type: "POST",
 			data: {
 				id_user: dosen,
@@ -76,7 +76,7 @@
 			},
 			success: function () {
 				alert("Chat Successfully added");
-                window.location.href = "<?= base_url(); ?>Mahasiswa/mChat";
+                window.location.href = "<?= base_url(); ?>Mahasiswa/MChat";
 			}
 		})
 	}

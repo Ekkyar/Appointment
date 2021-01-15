@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Mahasiswa/mDashboard'); ?>">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Mahasiswa/MDashboard'); ?>">
         <div class="sidebar-brand-icon">
             <i class="fas fa-handshake"></i>
         </div>
@@ -19,7 +19,7 @@
         <li class="nav-item">
         <?php endif; ?>
 
-        <a class="nav-link" href="<?= base_url('Mahasiswa/mDashboard'); ?>">
+        <a class="nav-link" href="<?= base_url('Mahasiswa/MDashboard'); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
         </li>
@@ -39,7 +39,7 @@
             <li class="nav-item">
             <?php endif; ?>
 
-            <a class="nav-link" href="<?= base_url('Mahasiswa/mJadwal'); ?>">
+            <a class="nav-link" href="<?= base_url('Mahasiswa/MJadwal'); ?>">
                 <i class="fas fa-fw fa-calendar-alt"></i>
                 <span>Jadwal</span>
             </a>
@@ -52,7 +52,7 @@
                 <li class="nav-item">
                 <?php endif; ?>
 
-                <a class="nav-link collapsed" href="<?= base_url('Mahasiswa/mDataDosen'); ?>">
+                <a class="nav-link collapsed" href="<?= base_url('Mahasiswa/MDataDosen'); ?>">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Data Dosen</span>
                 </a>
@@ -65,7 +65,7 @@
                     <li class="nav-item">
                     <?php endif; ?>
 
-                    <a class="nav-link" href="<?= base_url('Mahasiswa/mChat'); ?>">
+                    <a class="nav-link" href="<?= base_url('Mahasiswa/MChat'); ?>">
                         <i class="fas fa-fw fa-comments"></i>
                         <span>Chat</span>
                     </a>

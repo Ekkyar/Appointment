@@ -40,7 +40,7 @@
 
 	function loadChat() {
 		$.ajax({
-			url: "<?= base_url(); ?>dosen/dchat/chat_ajax/<?= $this->uri->segment(4); ?>",
+			url: "<?= base_url(); ?>Dosen/DChat/chat_ajax/<?= $this->uri->segment(4); ?>",
 			dataType: "json",
 			success: function (data) {
 				var baris = ``;
@@ -72,7 +72,7 @@
 	function send() {
 		var message = $('#message').val();
 		$.ajax({
-				url: "<?php echo base_url(); ?>Dosen/dchat/sendReply",
+				url: "<?php echo base_url(); ?>Dosen/DChat/sendReply",
 				type: "POST",
 				data: {
 					id_chat: <?= $this->uri->segment(4); ?>,
@@ -81,7 +81,7 @@
 				},
 				success: function () {
 					alert("Reply Successfully added");
-					window.location.href = "<?= base_url(); ?>Dosen/dchat/show/<?= $this->uri->segment(4); ?>";
+					window.location.href = "<?= base_url(); ?>Dosen/DChat/show/<?= $this->uri->segment(4); ?>";
 				}
 			})
 	}

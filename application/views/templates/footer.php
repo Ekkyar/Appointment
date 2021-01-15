@@ -51,8 +51,10 @@
             <div class="modal-body">
             <ul class="list-group">
                 <li class="list-group-item nama"></li>
+                <li class="list-group-item dosen-dituju"></li>
                 <li class="list-group-item kebutuhan"></li>
                 <li class="list-group-item status"></li>
+                <li class="list-group-item event-id"></li>
             </ul>
             <hr>
             <div class="form-group">
@@ -61,6 +63,7 @@
             </div>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-danger" onClick="deleteEvent()" type="button" data-dismiss="modal">Delete</button>
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -79,6 +82,21 @@
 <script src='https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js'></script>
 <script>
+    function deleteEvent()
+    {
+        var eventId = $('.event-id').text();
+        $.ajax({
+            url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/delete",
+            type: "POST",
+            data: {
+                id: eventId
+            },
+            success: function(data) {
+                alert("Event deleted");
+                window.location.href = "<?= base_url(); ?>Mahasiswa/MJadwal";
+            }
+        })
+    }
 
     $(document).ready(function() {
         var calendar = $('#calendar').fullCalendar({
@@ -89,18 +107,34 @@
                 right: 'month,agendaWeek,agendaDay'
             },
             eventColor: "blue",
-            events: "<?php echo base_url(); ?>Mahasiswa/mJadwal/load",
+            events: "<?php echo base_url(); ?>Mahasiswa/MJadwal/load",
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
                 var title = prompt("Masukkan Keperluan");
+                var id_prodi = <?= $id_prodi; ?>;
+
                 if (title) {
                     var id_user = <?= $id_user_mahasiswa; ?>;
-                    var id_dosen = $("#id_role option:selected").val();
+
+                    if (id_prodi == 1) {
+                        var id_dosen = $("#select_mif option:selected").val();
+                    }
+
+                    if (id_prodi == 2) {
+                        var id_dosen = $("#select_tif option:selected").val();
+                    }
+
+                    if (id_prodi == 3) {
+                        var id_dosen = $("#select_tkk option:selected").val();
+                    }
+
+                    console.log(id_dosen);
                     var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                     var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+
                     $.ajax({
-                        url: "<?php echo base_url(); ?>Mahasiswa/mJadwal/insert",
+                        url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/insert",
                         type: "POST",
                         data: {
                             title: title,
@@ -109,22 +143,115 @@
                             user: id_user,
                             dosen: id_dosen
                         },
-                        success: function() {
+                        success: function(data) {
                             calendar.fullCalendar('refetchEvents');
-                            alert("Added Successfully");
+                            alert(data);
                         }
-                    })
+                    });
+                    
                 }
             },
             eventClick: function(event) {
                 jQuery.noConflict(); 
                 $('#eventModal').modal('show'); 
                 $('.nama').text(`Nama Lengkap: ${event.user}`);
+                $('.dosen-dituju').text(`Nama Dosen: ${event.dosen == null ? 'semua dosen' : event.dosen}`);
                 $('.kebutuhan').text(`Kebutuhan: ${event.title}`);
                 $('.status').text(`Status: ${event.status}`);
-                $('.event_id').val(event.id);
+                $('.event-id').text(`${event.id}`);
                 $('.status_id').val(event.id);
                 $('.message_report').val(event.message);
+                
+            }
+        });
+
+        $('#select_mif').on('change', function(events) {
+            id_dosen_selected = $(this).children("option:selected").val();
+
+            // var eventSources = calendar.getEventSources();
+
+            if (id_dosen_selected != "") {
+                console.log(id_dosen_selected);
+
+                events_new = {
+                    url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/loadByDosen/" + id_dosen_selected,
+                    type: "GET"
+                }
+
+
+                
+                calendar.fullCalendar('removeEventSources');
+                calendar.fullCalendar('addEventSource', events_new);
+                calendar.fullCalendar('refetchEvents');
+
+                // jQuery.noConflict(); 
+                // $('#eventModal').modal('show'); 
+                // $('.nama').text(`Nama Lengkap: ${events_new.user}`);
+                // $('.dosen-dituju').text(`Nama Dosen: ${events_new.dosen}`);
+                // $('.kebutuhan').text(`Kebutuhan: ${events_new.title}`);
+                // $('.status').text(`Status: ${events_new.status}`);
+                // $('.event_id').val(events_new.id);
+                // $('.status_id').val(events_new.id);
+                // $('.message_report').val(events_new.message);
+            } else {
+                console.log("semua");
+                events_new = {
+                    url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/load",
+                    type: "GET"
+                }
+
+                
+                calendar.fullCalendar('removeEventSources');
+                calendar.fullCalendar('addEventSource', events_new);
+                calendar.fullCalendar('refetchEvents');
+
+                // jQuery.noConflict(); 
+                // $('#eventModal').modal('show'); 
+                // $('.nama').text(`Nama Lengkap: ${events_new.user}`);
+                // $('.dosen-dituju').text(`Nama Dosen: ${events_new.dosen}`);
+                // $('.kebutuhan').text(`Kebutuhan: ${events_new.title}`);
+                // $('.status').text(`Status: ${events_new.status}`);
+                // $('.event_id').val(events_new.id);
+                // $('.status_id').val(events_new.id);
+                // $('.message_report').val(events_new.message);
+            }
+        });
+
+        $('#select_tif').on('change', function(events) {
+            id_dosen_selected = $(this).children("option:selected").val();
+
+            // var eventSources = calendar.getEventSources();
+
+            if (id_dosen_selected != null) {
+                console.log(id_dosen_selected);
+
+                events_new = {
+                    url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/loadByDosen/" + id_dosen_selected,
+                    type: "GET"
+                }
+
+                calendar.fullCalendar('removeEventSources');
+                calendar.fullCalendar('addEventSource', events_new);
+                calendar.fullCalendar('refetchEvents');
+            }
+        });
+
+        $('#select_tkk').on('change', function(events) {
+            id_dosen_selected = $(this).children("option:selected").val();
+
+            // var eventSources = calendar.getEventSources();
+
+            if (id_dosen_selected != null) {
+                console.log(id_dosen_selected);
+
+                events_new = {
+                    url: "<?php echo base_url(); ?>Mahasiswa/MJadwal/loadByDosen/" + id_dosen_selected,
+                    type: "GET"
+                }
+
+                calendar.fullCalendar('removeEventSources');
+                calendar.fullCalendar('addEventSource', events_new);
+                calendar.fullCalendar('refetchEvents');
             }
         });
     });

@@ -44,7 +44,7 @@
                         </div>
 
                         <!-- Form -->
-                        <form action="<?= base_url('Admin/aDataDosen/insert_dosen_mif'); ?>" method="post">
+                        <form action="<?= base_url('Admin/ADataDosen/insert_dosen_mif'); ?>" method="post">
                            <div class="modal-body">
                               <!-- Nama -->
                               <div class="form-group">
@@ -132,7 +132,7 @@
                                     <!-- Detail -->
                                     <a href="" class="badge badge-primary" data-toggle="modal" data-target="#lihatDosen<?= $tb['id_user']; ?>">detail</a> |
                                     <!-- delete -->
-                                    <a href="<?= base_url('Admin/aDataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
+                                    <a href="<?= base_url('Admin/ADataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
 
                                     <!-- Modal Detail -->
                                     <div class="modal fade" id="lihatDosen<?= $tb['id_user']; ?>" tabindex="-1" aria-labelledby="lihatDosenlabel" aria-hidden="true">
@@ -146,7 +146,7 @@
                                              </div>
 
                                              <!-- Form -->
-                                             <form action="<?= base_url('Admin/aDataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
+                                             <form action="<?= base_url('Admin/ADataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
                                                 <div class="modal-body">
                                                    <div class="form-group">
                                                       <label for="exampleFormControlInput2">Id User</label>
@@ -267,7 +267,7 @@
                         </div>
 
                         <!-- Form -->
-                        <form action="<?= base_url('Admin/aDataDosen/insert_dosen_tif'); ?>" method="post">
+                        <form action="<?= base_url('Admin/ADataDosen/insert_dosen_tif'); ?>" method="post">
                            <div class="modal-body">
                               <!-- Nama -->
                               <div class="form-group">
@@ -355,7 +355,7 @@
                                     <!-- Detail -->
                                     <a href="" class="badge badge-primary" data-toggle="modal" data-target="#lihatDosen<?= $tb['id_user']; ?>">detail</a> |
                                     <!-- delete -->
-                                    <a href="<?= base_url('Admin/aDataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
+                                    <a href="<?= base_url('Admin/ADataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
 
                                     <!-- Modal Detail -->
                                     <div class="modal fade" id="lihatDosen<?= $tb['id_user']; ?>" tabindex="-1" aria-labelledby="lihatDosenlabel" aria-hidden="true">
@@ -369,7 +369,7 @@
                                              </div>
 
                                              <!-- Form -->
-                                             <form action="<?= base_url('Admin/aDataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
+                                             <form action="<?= base_url('Admin/ADataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
                                                 <div class="modal-body">
                                                    <div class="form-group">
                                                       <label for="exampleFormControlInput2">Id User</label>
@@ -490,7 +490,7 @@
                         </div>
 
                         <!-- Form -->
-                        <form action="<?= base_url('Admin/aDataDosen/insert_dosen_tkk'); ?>" method="post">
+                        <form action="<?= base_url('Admin/ADataDosen/insert_dosen_tkk'); ?>" method="post">
                            <div class="modal-body">
                               <!-- Nama -->
                               <div class="form-group">
@@ -578,7 +578,7 @@
                                     <!-- Detail -->
                                     <a href="" class="badge badge-primary" data-toggle="modal" data-target="#lihatDosen<?= $tb['id_user']; ?>">detail</a> |
                                     <!-- delete -->
-                                    <a href="<?= base_url('Admin/aDataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
+                                    <a href="<?= base_url('Admin/ADataDosen/delete_user/'); ?><?= $tb['id_user']; ?>" class="badge badge-danger" onclick="return confirm('Your data will be delete. Are you sure to continue?');">hapus</a>
 
                                     <!-- Modal Detail -->
                                     <div class="modal fade" id="lihatDosen<?= $tb['id_user']; ?>" tabindex="-1" aria-labelledby="lihatDosenlabel" aria-hidden="true">
@@ -592,7 +592,7 @@
                                              </div>
 
                                              <!-- Form -->
-                                             <form action="<?= base_url('Admin/aDataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
+                                             <form action="<?= base_url('Admin/ADataDosen/ubah_user/'); ?><?= $tb['id_user']; ?>" method="post">
                                                 <div class="modal-body">
                                                    <div class="form-group">
                                                       <label for="exampleFormControlInput2">Id User</label>

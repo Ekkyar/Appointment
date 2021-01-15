@@ -20,6 +20,7 @@
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.print.css' rel='stylesheet' media='print' />
     <!-- SB ADMIN -->
     <link href="<?= base_url('assets/sb-admin/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/sb-admin/'); ?>css/datetimepicker.css">
 
 </head>
 

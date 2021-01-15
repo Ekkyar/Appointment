@@ -40,7 +40,7 @@
 
 	function loadChat() {
 		$.ajax({
-			url: "<?= base_url(); ?>mahasiswa/mchat/chat_ajax/<?= $this->uri->segment(4); ?>",
+			url: "<?= base_url(); ?>Mahasiswa/MChat/chat_ajax/<?= $this->uri->segment(4); ?>",
 			dataType: "json",
 			success: function (data) {
 				var baris = ``;
@@ -72,7 +72,7 @@
 	function send() {
 		var message = $('#message').val();
 		$.ajax({
-				url: "<?php echo base_url(); ?>Mahasiswa/mChat/sendReply",
+				url: "<?php echo base_url(); ?>Mahasiswa/MChat/sendReply",
 				type: "POST",
 				data: {
 					id_chat: <?= $this->uri->segment(4); ?>,
@@ -81,7 +81,7 @@
 				},
 				success: function () {
 					alert("Reply Successfully added");
-					window.location.href = "<?= base_url(); ?>Mahasiswa/mChat/show/<?= $this->uri->segment(4); ?>";
+					window.location.href = "<?= base_url(); ?>Mahasiswa/MChat/show/<?= $this->uri->segment(4); ?>";
 				}
 			})
 	}

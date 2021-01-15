@@ -53,11 +53,11 @@ class Auth extends CI_Controller
 
                 //cek status
                 if ($data['id_role'] == '1') {
-                    redirect('Admin/aDashboard');
+                    redirect('Admin/ADashboard');
                 } else if ($data['id_role'] == '2') {
-                    redirect('Dosen/dDashboard');
+                    redirect('Dosen/DDashboard');
                 } else if ($data['id_role'] == '3') {
-                    redirect('Mahasiswa/mDashboard');
+                    redirect('Mahasiswa/MDashboard');
                 }
             } else {
                 // password salah

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class mDataDosen extends CI_Controller
+class MDataDosen extends CI_Controller
 {
     public function __construct()
     {

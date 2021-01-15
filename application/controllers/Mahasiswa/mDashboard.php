@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class mDashboard extends CI_Controller
+class MDashboard extends CI_Controller
 {
     public function __construct()
     {

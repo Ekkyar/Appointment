@@ -10,7 +10,7 @@
         </div>
 
         <!-- Content 1 -->
-        <div id="collapseOne" class="col collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div id="collapseOne" class="col collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" >
             <div class="card shadow mb-4" id="headingOne">
                 <div class="card-header py-3 text-center">
                     <h6 class="font-weight-bold text-primary">Manajemen Informatika (MIF)</h6>
@@ -23,7 +23,7 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">ID User</th>
-                                        <th scope="col">Nama Dosen</th>
+                                        <th scope="col">Nama dosen</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">Image</th>
                                         <th scope="col"></th>
@@ -42,9 +42,7 @@
                                                     <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                                <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                            
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -57,7 +55,8 @@
         <!-- End of Content 1 -->
 
         <!-- Content 2 -->
-        <div id="collapseTwo" class="col collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        
+        <div id="collapseTwo" class="col collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" >
             <div class="card shadow mb-4" id="headingTwo">
                 <div class="card-header py-3">
                     <h6 class="font-weight-bold text-primary text-center">Teknik Informatika (TIF)</h6>
@@ -86,12 +85,10 @@
                                             <td><?= $tif['nip/nim'] ?></td>
                                             <td>
                                                 <div class="col">
-                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
+                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $tif['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                               <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                            
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -133,12 +130,10 @@
                                             <td><?= $tkk['nip/nim'] ?></td>
                                             <td>
                                                 <div class="col">
-                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
+                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $tkk['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                               <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                           
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

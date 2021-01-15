@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class aDataDosen extends CI_Controller
+class ADataDosen extends CI_Controller
 {
     public function __construct()
     {
@@ -71,7 +71,7 @@ class aDataDosen extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data dosen berhasil ditambahkan!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         }
     }
 
@@ -92,7 +92,7 @@ class aDataDosen extends CI_Controller
         if ($this->form_validation->run() == False) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data dosen gagal ditambahkan!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
@@ -106,7 +106,7 @@ class aDataDosen extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data dosen berhasil ditambahkan!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         }
     }
 
@@ -127,7 +127,7 @@ class aDataDosen extends CI_Controller
         if ($this->form_validation->run() == False) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data dosen gagal ditambahkan!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
@@ -141,7 +141,7 @@ class aDataDosen extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data dosen berhasil ditambahkan!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         }
     }
 
@@ -154,7 +154,7 @@ class aDataDosen extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data dosen gagal diupdate!</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         } else {
             //form validasi sukses
             //model edit dosen
@@ -162,7 +162,7 @@ class aDataDosen extends CI_Controller
 
             //notif edit data sukses
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data dosen telah diupdate..</div>');
-            redirect('Admin/aDataDosen');
+            redirect('Admin/ADataDosen');
         }
     }
 
@@ -173,6 +173,6 @@ class aDataDosen extends CI_Controller
 
         //notif delete sukses
         $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data dosen berhasil dihapus..</div>');
-        redirect('Admin/aDataDosen');
+        redirect('Admin/ADataDosen');
     }
 }

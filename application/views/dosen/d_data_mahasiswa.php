@@ -22,7 +22,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
+                                        <th scope="col">ID User</th>
                                         <th scope="col">Nama Mahasiswa</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Image</th>
@@ -42,9 +42,7 @@
                                                     <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                                <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                           
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -69,7 +67,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
+                                        <th scope="col">ID User</th>
                                         <th scope="col">Nama Mahasiswa</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Image</th>
@@ -86,12 +84,10 @@
                                             <td><?= $tif['nip/nim'] ?></td>
                                             <td>
                                                 <div class="col">
-                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
+                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $tif['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                               <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                           
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -116,7 +112,7 @@
                             <table class="table table-">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">id User</th>
+                                        <th scope="col">ID User</th>
                                         <th scope="col">Nama Mahasiswa</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Image</th>
@@ -133,12 +129,10 @@
                                             <td><?= $tkk['nip/nim'] ?></td>
                                             <td>
                                                 <div class="col">
-                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $mif['image'] ?>" alt="img">
+                                                    <img class="img-thumbnail" width="80px" src="<?= base_url('assets/img/profile/') . $tkk['image'] ?>" alt="img">
                                                 </div>
                                             </td>
-                                            <td>
-                                                <a href="" class=" badge badge-success" data-toggle="modal" data-target="#lihatMahasiswa<?= $mif['id_user']; ?>">Chat</a>
-                                            </td>
+                                            
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

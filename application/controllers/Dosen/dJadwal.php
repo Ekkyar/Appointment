@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class dJadwal extends CI_Controller
+class DJadwal extends CI_Controller
 {
     public function __construct()
     {
@@ -27,6 +27,7 @@ class dJadwal extends CI_Controller
         //ambil data session login
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get_where('tb_role', ['id_role' => $this->session->userdata('id_role')])->row_array();
+        $data['id_user_dosen'] = $data['user']['id_user'];
         $data['mRequest'] = $this->db->get_where('tb_event', ['id_dosen' => $data['user']['id_user']])->result_array();
 
         // Tampil Dosen
@@ -56,12 +57,14 @@ class dJadwal extends CI_Controller
 
             $msg = "$content oleh $user";
 
-            if($status === "waiting") {
+            if ($status === "waiting") {
                 $color = "blue";
-            } elseif($status === "accept") {
+            } elseif ($status === "accept") {
                 $color = "green";
-            } elseif($status === "reject") {
+            } elseif ($status === "reject") {
                 $color = "red";
+            } elseif ($status == "busy") {
+                $color = "yellow";
             }
 
             $data[] = array(
@@ -87,7 +90,7 @@ class dJadwal extends CI_Controller
 
     function update()
     {
-        if(!$this->input->post('status') || $this->input->post('message')) {
+        if (!$this->input->post('status') || $this->input->post('message')) {
             $data = array(
                 'status'   => $this->input->post('status'),
                 'message' => $this->input->post('message')
@@ -99,8 +102,29 @@ class dJadwal extends CI_Controller
                 'status'   => $this->input->post('status')
             );
             $this->db->where('id', $this->input->post('id'));
-            $this->db->update('tb_event', $data);            
+            $this->db->update('tb_event', $data);
         }
-        
+    }
+
+    function insert()
+    {
+        if ($this->input->post('title')) {
+            $data = array(
+                'title'  => $this->input->post('title'),
+                'start_event' => $this->input->post('start'),
+                'end_event' => $this->input->post('end'),
+                'id_user' => $this->input->post('user'),
+                'id_dosen' => $this->input->post('dosen'),
+                'status' => 'busy'
+            );
+
+            // var_dump($data); die;
+            if ($this->Model_FullCalendar->insert_event($data)) {
+                echo "success";
+            } else {
+                echo "failed";
+                // var_dump($data);
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@
                         <small>from <?= $chat['id_user']; ?></small><br>
 						<small>Diperbarui pada <?= $chat['update_time']; ?></small>
 					</p>
-                    <a href="<?= base_url(); ?>dosen/dchat/show/<?= $chat['id']; ?>" target="_blank" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    <a href="<?= base_url(); ?>Dosen/DChat/show/<?= $chat['id']; ?>" target="_blank" class="btn btn-primary"><i class="fas fa-eye"></i></a>
 				</div>
 			</div>
 		</div>

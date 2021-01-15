@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class dRequest extends CI_Controller
+class DRequest extends CI_Controller
 {
     public function __construct()
     {
@@ -42,8 +42,9 @@ class dRequest extends CI_Controller
         ];
         $this->db->where('id', $id);
         $this->db->update('tb_event', $data);
-        redirect('Dosen/dRequest');
+        redirect('Dosen/DRequest');
     }
+
     public function reject(){
         $id = $this->uri->segment(4);
         $data = [
@@ -51,6 +52,6 @@ class dRequest extends CI_Controller
         ];
         $this->db->where('id', $id);
         $this->db->update('tb_event', $data);
-        redirect('Dosen/dRequest');
+        redirect('Dosen/DRequest');
     }
 }

@@ -26,8 +26,8 @@
                     <td><?= $data['title']; ?></td>
                     <td><?= $data['start_event']; ?></td>
                     <td>
-                        <a href="<?= base_url();?>dosen/drequest/accept/<?= $data['id']; ?>">Accept</a> |
-                        <a href="<?= base_url();?>dosen/drequest/reject/<?= $data['id']; ?>">Reject</a>
+                        <a href="<?= base_url();?>Dosen/DRequest/accept/<?= $data['id']; ?>">Accept</a> |
+                        <a href="<?= base_url();?>Dosen/DRequest/reject/<?= $data['id']; ?>">Reject</a>
                     </td>
                 </tr>
             <?php

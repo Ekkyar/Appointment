@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class aDataMahasiswa extends CI_Controller
+class ADataMahasiswa extends CI_Controller
 {
     public function __construct()
     {
@@ -57,7 +57,7 @@ class aDataMahasiswa extends CI_Controller
         if ($this->form_validation->run() == False) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data mahasiswa gagal ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
@@ -71,7 +71,7 @@ class aDataMahasiswa extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data mahasiswa berhasil ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         }
     }
 
@@ -92,7 +92,7 @@ class aDataMahasiswa extends CI_Controller
         if ($this->form_validation->run() == False) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data mahasiswa gagal ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
@@ -106,7 +106,7 @@ class aDataMahasiswa extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data mahasiswa berhasil ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         }
     }
 
@@ -127,7 +127,7 @@ class aDataMahasiswa extends CI_Controller
         if ($this->form_validation->run() == False) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data mahasiswa gagal ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
@@ -141,7 +141,7 @@ class aDataMahasiswa extends CI_Controller
             ];
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data mahasiswa berhasil ditambahkan!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         }
     }
 
@@ -154,7 +154,7 @@ class aDataMahasiswa extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             //notif gagal form
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Data mahasiswa gagal diupdate!</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         } else {
             //form validasi sukses
             //model edit mahasiswa
@@ -162,7 +162,7 @@ class aDataMahasiswa extends CI_Controller
 
             //notif edit data sukses
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data mahasiswa telah diupdate..</div>');
-            redirect('Admin/aDataMahasiswa');
+            redirect('Admin/ADataMahasiswa');
         }
     }
 
@@ -173,6 +173,6 @@ class aDataMahasiswa extends CI_Controller
 
         //notif delete sukses
         $this->session->set_flashdata('message', '<div class="alert alert-success text-center" role="alert">Data mahasiswa berhasil dihapus..</div>');
-        redirect('Admin/aDataMahasiswa');
+        redirect('Admin/ADataMahasiswa');
     }
 }
