@@ -111,7 +111,7 @@
                      <table class="table">
                         <thead class="thead-light">
                            <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">No</th>
                               <th scope="col">Nama</th>
                               <th scope="col">NIP</th>
                               <th scope="col">Email</th>
@@ -120,10 +120,11 @@
                         </thead>
                         <tbody>
                            <?php
+                           $no =1;
                            foreach ($dosen_mif as $tb) :
                            ?>
                               <tr>
-                                 <td><?= $tb['id_user'] ?></td>
+                                 <td><?= $no++ ?></td>
                                  <td><?= $tb['name'] ?></td>
                                  <td><?= $tb['nip/nim'] ?></td>
                                  <td><?= $tb['email'] ?></td>
@@ -334,7 +335,7 @@
                      <table class="table">
                         <thead class="thead-light">
                            <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">No</th>
                               <th scope="col">Nama</th>
                               <th scope="col">NIP</th>
                               <th scope="col">Email</th>
@@ -343,10 +344,11 @@
                         </thead>
                         <tbody>
                            <?php
+                           $no =1;
                            foreach ($dosen_tif as $tb) :
                            ?>
                               <tr>
-                                 <td><?= $tb['id_user'] ?></td>
+                                 <td><?= $no++ ?></td>
                                  <td><?= $tb['name'] ?></td>
                                  <td><?= $tb['nip/nim'] ?></td>
                                  <td><?= $tb['email'] ?></td>
@@ -557,7 +559,7 @@
                      <table class="table">
                         <thead class="thead-light">
                            <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">No</th>
                               <th scope="col">Nama</th>
                               <th scope="col">NIP</th>
                               <th scope="col">Email</th>
@@ -566,10 +568,11 @@
                         </thead>
                         <tbody>
                            <?php
+                           $no =1;
                            foreach ($dosen_tkk as $tb) :
                            ?>
                               <tr>
-                                 <td><?= $tb['id_user'] ?></td>
+                                 <td><?= $no++ ?></td>
                                  <td><?= $tb['name'] ?></td>
                                  <td><?= $tb['nip/nim'] ?></td>
                                  <td><?= $tb['email'] ?></td>

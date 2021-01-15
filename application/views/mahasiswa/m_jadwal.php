@@ -9,7 +9,7 @@
       <div class="form-group">
         <label for="exampleEmail1">List Dosen MIF</label><br>
         <select class="custom-select mb-4 w-50" id="select_mif">
-          <option value="">Semua Dosen</option>
+          <option value="">Jadwal Saya</option>
           <?php foreach ($mif as $dosmif) : ?>
             <option value="<?php echo $dosmif['id_user']; ?>">
               <?php echo $dosmif['name']; ?>
@@ -22,7 +22,7 @@
       <div class="form-group">
         <label for="exampleEmail1">List Dosen TIF</label><br>
         <select class="custom-select mb-4 w-50" id="select_tif">
-          <option value="">Semua Dosen</option>
+          <option value="">Jadwal Saya</option>
           <?php foreach ($tif as $dostif) : ?>
             <option value="<?php echo $dostif['id_user']; ?>">
               <?php echo $dostif['name']; ?>
@@ -35,7 +35,7 @@
       <div class="form-group">
         <label for="exampleEmail1">List Dosen TKK</label><br>
         <select class="custom-select mb-4 w-50" id="select_tkk">
-          <option value="">Semua Dosen</option>
+          <option value="">Jadwal Saya</option>
           <?php foreach ($tkk as $dostkk) : ?>
             <option value="<?php echo $dostkk['id_user']; ?>">
               <?php echo $dostkk['name']; ?>

@@ -45,6 +45,8 @@ class ADataMahasiswa extends CI_Controller
         //Rules
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
         $this->form_validation->set_rules('nip/nim', 'Nim', 'required|trim');
+        $this->form_validation->set_rules('golongan', 'Golongan', 'required|trim');
+        $this->form_validation->set_rules('tahun_angkatan', 'Angkatan', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tb_user.email]', [
             'is_unique' => 'Email is already registered'
         ]);

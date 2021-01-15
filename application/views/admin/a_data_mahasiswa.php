@@ -58,6 +58,18 @@
                                             <input type="text" class="form-control" class="form-control" id="nip/nim" name="nip/nim" value="<?= set_value('nip/nim'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
                                             <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
                                         </div>
+                                        <!-- Golongan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Golongan</label>
+                                            <input type="text" class="form-control" class="form-control" id="golongan" name="golongan" value="<?= set_value('golongan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
+                                        <!-- Tahun Angkatan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Tahun Angkatan</label>
+                                            <input type="text" class="form-control" class="form-control" id="tahun_angkatan" name="tahun_angkatan" value="<?= set_value('tahun_angkatan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
                                         <!-- Email -->
                                         <label for="exampleFormControlInput1">Email</label>
                                         <div class="form-group input-group mb-3">
@@ -111,7 +123,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Id</th>
+                                        <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Email</th>
@@ -120,10 +132,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no =1;
                                     foreach ($mahasiswa_mif as $tb) :
                                     ?>
                                         <tr>
-                                            <td><?= $tb['id_user'] ?></td>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $tb['name'] ?></td>
                                             <td><?= $tb['nip/nim'] ?></td>
                                             <td><?= $tb['email'] ?></td>
@@ -163,6 +176,18 @@
                                                                         <label for="exampleFormControlInput2">NIM</label>
                                                                         <input type="text" class="form-control" class="form-control" id="nip/nim" name="nip/nim" value="<?= $tb['nip/nim']; ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
                                                                         <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                                                    </div>
+                                                                    <!-- Golongan -->
+                                                                    <div class="form-group">
+                                                                        <label for="exampleFormControlInput2">Golongan</label>
+                                                                        <input type="text" class="form-control" class="form-control" id="golongan" name="golongan" value="<?= $tb['golongan']; ?>" readonly>
+                                                                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                                                                    </div>
+                                                                    <!-- Tahun Angkatan -->
+                                                                    <div class="form-group">
+                                                                        <label for="exampleFormControlInput2">Email</label>
+                                                                        <input type="text" class="form-control" class="form-control" id="tahunangkatan" name="tahunangkatan" value="<?= $tb['tahun_angkatan']; ?>" readonly>
+                                                                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                                                                     </div>
                                                                     <!-- Email -->
                                                                     <div class="form-group">
@@ -281,6 +306,18 @@
                                             <input type="text" class="form-control" class="form-control" id="nip/nim" name="nip/nim" value="<?= set_value('nip/nim'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
                                             <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
                                         </div>
+                                        <!-- Golongan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Golongan</label>
+                                            <input type="text" class="form-control" class="form-control" id="golongan" name="golongan" value="<?= set_value('golongan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
+                                        <!-- Tahun Angkatan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Tahun Angkatan</label>
+                                            <input type="text" class="form-control" class="form-control" id="tahunangkatan" name="tahunangkatan" value="<?= set_value('tahun_angkatan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
                                         <!-- Email -->
                                         <label for="exampleFormControlInput1">Email</label>
                                         <div class="form-group input-group mb-3">
@@ -334,7 +371,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Id</th>
+                                        <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Email</th>
@@ -343,10 +380,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no =1;
                                     foreach ($mahasiswa_tif as $tb) :
                                     ?>
                                         <tr>
-                                            <td><?= $tb['id_user'] ?></td>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $tb['name'] ?></td>
                                             <td><?= $tb['nip/nim'] ?></td>
                                             <td><?= $tb['email'] ?></td>
@@ -504,6 +542,18 @@
                                             <input type="text" class="form-control" class="form-control" id="nip/nim" name="nip/nim" value="<?= set_value('nip/nim'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
                                             <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
                                         </div>
+                                        <!-- Golongan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Golongan</label>
+                                            <input type="text" class="form-control" class="form-control" id="golongan" name="golongan" value="<?= set_value('golongan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
+                                        <!-- Tahun Angkatan -->
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Tahun Angkatan</label>
+                                            <input type="text" class="form-control" class="form-control" id="tahunangkatan" name="tahunangkatan" value="<?= set_value('tahun_angkatan'); ?>" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+                                            <?= form_error('nip/nim', '<small class="text-danger">', '</small>'); ?>
+                                        </div>
                                         <!-- Email -->
                                         <label for="exampleFormControlInput1">Email</label>
                                         <div class="form-group input-group mb-3">
@@ -557,7 +607,7 @@
                             <table class="table">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Id</th>
+                                        <th scope="col">No</th>
                                         <th scope="col">Nama</th>
                                         <th scope="col">NIM</th>
                                         <th scope="col">Email</th>
@@ -566,10 +616,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $no =1;
                                     foreach ($mahasiswa_tkk as $tb) :
                                     ?>
                                         <tr>
-                                            <td><?= $tb['id_user'] ?></td>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $tb['name'] ?></td>
                                             <td><?= $tb['nip/nim'] ?></td>
                                             <td><?= $tb['email'] ?></td>

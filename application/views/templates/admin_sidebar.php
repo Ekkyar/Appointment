@@ -32,18 +32,6 @@
             Menu
         </div>
 
-        <!-- Nav Item - Jadwal -->
-        <?php if ($title == 'Jadwal') : ?>
-            <li class="nav-item active">
-            <?php else : ?>
-            <li class="nav-item">
-            <?php endif; ?>
-
-            <a class="nav-link collapsed" href="<?= base_url('Admin/AJadwal'); ?>">
-                <i class="fas fa-fw fa-calendar-alt"></i>
-                <span>Jadwal</span>
-            </a>
-            </li>
 
 
             <!-- Nav Item - Dosen -->
